@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            -webkit-box-shadow: 12px 14px 6px 5px rgba(0,0,0,0.24);
+            box-shadow: 12px 14px 6px 5px rgba(0,0,0,0.24);
+            border: solid 1px gray;
+        }
+        table thead th {
+            background-color: black;
+            color: white;
+        }
+        table tfoot td {
+            background-color: lightgray;
+        }
+        table tbody tr:nth-child(even) td {
+            background-color: #f1f1f1;
+        }
+
+        table tbody tr:hover td {
+            background-color: #E9E9E9;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <table summary="Tabela referente a idade de pessoas" border="0" width="250" cellspacing="5" cellpadding="5" align="center">
+        <caption>Tabela de Idades</caption>
+
+        <thead>
+            <tr>
+                <th colspan="2">Minha tabela</th>
+            </tr>
+            <tr id="1">
+                <th title="Nome Completo">Nome</th>
+                <th>Idade</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr id="2">
+                <td>Mateus</td>
+                <td>19</td>
+            </tr>
+            <tr id="3">
+                <td>Maria</td>
+                <td>34</td>
+            </tr>
+            <tr id="4">
+                <td>Pedro</td>
+                <td>62</td>
+            </tr>
+            <tr id="5">
+                <td>Walter</td>
+                <td>28</td>
+            </tr>
+            <tr id="6">
+                <td>Augusto</td>
+                <td>25</td>
+            </tr>
+            <tr id="7">
+                <td>Luiz</td>
+                <td>32</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td>Total</td>
+                <td>6</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>
