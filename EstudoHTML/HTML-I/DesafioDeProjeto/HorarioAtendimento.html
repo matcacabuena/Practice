@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horário de Atendimento</title>
+    <style>
+        header {
+            text-align: center;
+            background-color: rgba(255, 166, 0, 0.705);
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 80% 20%;
+        }
+
+        menu {
+            float: left;
+            padding: 0px;
+            background-color: rgba(173, 216, 230, 0.445);
+            width: 20%;
+            height: 300px;
+            margin: 0;
+        }
+
+        content {
+            float: left;
+            width: 80%;
+            padding: 0px;
+            background-color: rgba(127, 255, 212, 0.521);
+            height: 300px;
+        }
+
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        footer {
+            text-align: center;
+            background-color: lightgoldenrodyellow;
+        }
+
+        footer h3 {
+            margin: 0;
+        }
+
+        table {
+            border:blue;
+            padding-top: 30px;
+        }
+
+        table thead {
+            background-color: lightblue;
+        }
+
+        table tbody tr:nth-child(even) td {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="page">
+        <div id="header">
+            <header>
+                <h1 id="time">Horário de Atendimento</h1>
+                <img src="horarioAtendimento.jpeg" alt="" width="200">
+            </header>
+        </div>
+
+        <div id="menu">
+            <menu>
+                <h2 align="center"><u>Menu de Navegação</u></h2>
+                <ul>
+                    <li><a href="index.html" target="_self">Página Principal</a></li>
+                    <li><a href="sobreClinica.html" target="_self">Sobre a Clínica</a></li>
+                    <li><a href="HorarioAtendimento.html" target="_self">Horário de Atendimento</a></li>
+                    <li><a href="contato.html" target="_self" >Contato</a></li>
+                </ul>
+            </menu>
+        </div>
+
+        <div id="content">
+            <content>
+                <table summary="Tabela referente aos horários de atendimento" border="1" width="500" cellspacing="5" cellpadding="5" align="center" >
+                    <thead>
+                        <tr>
+                            <th>Serviços</th>
+                            <th>Seg à Sex</th>
+                            <th>Sab, Dom e Feriados</th>
+                            <th>Preço</th>
+                        </tr>
+                    </thead>
+
+                    <tbody align="center">
+                        <tr>
+                            <td>Banho</td>
+                            <td>10h às 18h</td>
+                            <td>Indisponível</td>
+                            <td>R$30,00</td>
+                        </tr>
+                        <tr>
+                            <td>Banho e Tosa</td>
+                            <td>10h às 18h</td>
+                            <td>Indisponível</td>
+                            <td>R$50,00</td>
+                        </tr>
+                        <tr>
+                            <td>Adoção</td>
+                            <td>10h às 18h</td>
+                            <td>Indisponível</td>
+                            <td>Grátis</td>
+                        </tr>
+                        <tr>
+                            <td>Exames Físicos</td>
+                            <td>24h</td>
+                            <td>24h</td>
+                            <td>R$90,00</td>
+                        </tr>
+                        <tr>
+                            <td>Exames Psicológicos</td>
+                            <td>24h</td>
+                            <td>24h</td>
+                            <td>R$60,00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </content>
+        </div>
+
+        <div id="footer">
+            <footer>
+                <h3>Todos os Direitos Reservados.</h3><br>
+                <h3>Contato</h3>
+                <p><u>(51) 94867-8686</u></p>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
