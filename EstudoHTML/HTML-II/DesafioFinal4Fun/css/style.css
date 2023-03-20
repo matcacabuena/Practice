@@ -36,3 +36,22 @@ a { color:blue; text-decoration: none;}
 figure {
     text-align: center;
 }
+table {
+    border: solid 1px gray;
+    text-align: center;
+}
+table thead th {
+    background-color: black;
+    color: white;
+}
+table tfoot td {
+    background-color: lightgray;
+}
+table tbody tr:nth-child(even) td {
+    background-color: #f1f1f1;
+}
+
+table tbody tr:hover td {
+    background-color: #E9E9E9;
+    cursor: pointer;
+}
