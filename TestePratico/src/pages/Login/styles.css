@@ -1,9 +1,3 @@
-.get {
-    background-color: red;
-    color: #FFF;
-    border-radius: 5px;
-}
-
 .container {
     width: 100vw;
     height: 100vh;
@@ -60,6 +54,8 @@
     color: #fff
 }
 
-.footer {
-    color:red
+.container form .footer {
+    color: red;
+    text-align: center;
+    margin: 10px;
 }
