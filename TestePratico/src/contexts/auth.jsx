@@ -30,22 +30,53 @@ export const AuthProvider = ({ children }) => {
       return !rs?.status;
   };
 
-  const sellerList = async () => {
+  const sellerList = async ({page}) => {
     const token = localStorage.getItem("token")
-    const rs = await fetch('https://m2devadmin.softkuka.com.br/api/Vendedor', {
+    const rs = await fetch(`https://m2devadmin.softkuka.com.br/api/Vendedor${ page && `?page=${page}&recordsPerPage=10`}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => response.json())
-      // .then(response => setSellers(response))
       .catch(mistake => console.log('Error: ', mistake))
-      
+
       return rs;
+  }
+
+  const searchSeller = async ({search}) => {
+    const token = localStorage.getItem("token")
+    const rs = await fetch(`https://m2devadmin.softkuka.com.br/api/Vendedor${search && `?search=${search}`}`, {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => response.json())
+      .catch(mistake => console.log('Error: ', mistake))
+
+      return rs;
+  }
+
+  const createSeller = async ({name, cnpj, bussinessId, createdAt, updatedAt}) => {
+    const token = localStorage.getItem("token")
+
+    const createdSeller = await fetch(`https://m2devadmin.softkuka.com.br/api/Vendedor`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}` },
+      body: {
+        nome:name,
+        cnpj,
+        idEmpresa: bussinessId,
+        criadoEm: createdAt,
+        atualizadoEm: updatedAt
+      }
+    })
+    .then(response => "vendedor criado com sucesso")
+    .catch(mistake => console.log('Error: ', mistake))
+
+    return createdSeller
   }
 
   return (
     <AuthContext.Provider
-    value={{ user, signed, login, sellerList}}
+    value={{ user, signed, login, sellerList, searchSeller, createSeller}}
     >
       {children}
     </AuthContext.Provider>
