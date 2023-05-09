@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/no-children-prop */
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +8,7 @@ import useAuth from "../../hooks/useAuth";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 import { AiOutlineUser } from "react-icons/ai"
 import {
+  Text,
   Flex,
   Heading,
   Input,
@@ -41,7 +44,7 @@ const Login = () => {
   const [error, setError] = useState("");
 
   const handleLogin = async () => {
-
+    
     if (!email | !password) { return setError("Preencha todos os campos"); }
 
     const res = await login(email, password);
@@ -53,7 +56,7 @@ const Login = () => {
     }
 
     setError("res error");
-    console.log("handle login error: " + error)
+    console.log("handle login error " + error)
 
   };
 

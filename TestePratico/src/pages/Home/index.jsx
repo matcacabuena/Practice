@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-key */
 import {
   Text,
@@ -19,13 +21,12 @@ import {
   Grid,
   GridItem,
   Divider,
+  Link
 } from "@chakra-ui/react";
 import useAuth from "../../hooks/useAuth";
 import { useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import "./styles.css";
-
-const searchButton = chakra(AiOutlineSearch);
 
 const List = () => {
   const { sellerList, searchSeller, createSeller } = useAuth();
@@ -35,9 +36,9 @@ const List = () => {
 
   const showSellers = async () => {
     const res = await sellerList({ page });
-    res.forEach((element) => {
-      console.log(element.nome);
-    });
+    // res.forEach((element) => {
+    //   console.log(element.nome);
+    // });
     setSellers(res);
     //res = array de vendedores
   };
@@ -50,24 +51,19 @@ const List = () => {
     setSellers(res);
   }
 
-  createSeller({
-    name: "ABADABADU",
-    cnpj: "aaaaaaaa123",
-    bussinessId: 0,
-    createdAt: "2023-03-08T14:02:06.757Z",
-    updatedAt: "2023-03-08T14:02:06.757Z",
-  });
-
   return (
     <Flex
       flexDirection="column"
       width="100wv"
+      maxW='1600ch'
       backgroundColor="gray.200"
       justifyContent="center"
       alignItems="center"
+      textAlign='center'
     >
+      <Box>
       <Stack spacing={6}>
-        <Heading as="h1" color="teal" textAlign="center">
+        <Heading as="h1" color="teal" textAlign="center" marginTop='6' >
           Sellers List
         </Heading>
         <Heading>
@@ -82,11 +78,6 @@ const List = () => {
                 value={searchSellerInput}
                 onChange={(e) => setSearchSellerInput(e.target.value)}
               />
-              <InputRightElement
-                pointerEvents="none"
-                color="gray.300"
-                children={<searchButton />}
-              />
             </InputGroup>
             <Button
               backgroundColor="whiteAlpha.900"
@@ -97,23 +88,26 @@ const List = () => {
             </Button>
             <Button
               backgroundColor="whiteAlpha.900"
-              float="right"
               m="0.5"
               onClick={handleSearchSellers}
             >
               Pesquisar
             </Button>
-          </FormLabel>
-          <Button backgroundColor="whiteAlpha.900"
+            <Link href="/addseller" >
+            <Button backgroundColor="whiteAlpha.900"
               float="right"
-              m="0.5">+</Button>
+              m="0.5"
+              >+</Button>
+              </Link>
+          </FormLabel>
+          <Link href="/home" fontSize='17' color='teal' >Logout</Link>
         </Heading>
-        {/* <a href="#">sair</a> */}
       </Stack>
+      </Box>
       <Box className="sellerList">
         {sellers.length > 0 ? (
           sellers.map(
-            ({ id, nome, cnpj, idEmpresa, criadoEm }) => (
+            ({ id, nome, cnpj, idEmpresa, criadoEm, atualizadoEm }) => (
               <Box className="seller">
                 <OrderedList>
                   <Avatar bg="teal" size="2xs" />
@@ -132,34 +126,21 @@ const List = () => {
                   <ListItem>
                     <Text as="b">Criado em:</Text> {criadoEm}
                   </ListItem>
+                  <ListItem>
+                    <Text as="b">Atualizado em:</Text> {atualizadoEm}
+                  </ListItem>
                 </OrderedList>
               </Box>
             )
-            // <Grid templateColumns='repeat(5, 1fr)' gap={6}>
-            //   <GridItem
-            //     display='flex' flex-direction='column' m='1rem'
-            //     p='1rem' borderRadius='1rem' backgroundColor='teal'
-            //     color='whiteAlpha.900'>
-            //     <OrderedList>
-            //       <ListItem><Text as='b'>ID:</Text> {id}</ListItem>
-            //       <ListItem><Text as='b'>Nome:</Text> {nome}</ListItem>
-            //     </OrderedList>
-            //     <Text as='b'>ID:</Text> {id}
-            //     <p></p>
-            //     <Text as='b'>CNPJ:</Text> {cnpj}
-
-            //   </GridItem>
-
-            // </Grid>
           )
         ) : (
           <Heading as="h2" color="teal" textAlign="center">
             No sellers found :('
           </Heading>
         )}
-        {/* <Button colorScheme='teal' onClick={getData} className="get">Checar o GET</Button> */}
+ 
       </Box>
-      <Box>
+      <Flex  > 
         <Button
           className={`${page === 1 && "selectedPage"}`}
           onClick={() => {
@@ -216,7 +197,7 @@ const List = () => {
         >
           9
         </Button>
-      </Box>
+      </Flex>
     </Flex>
   );
 };

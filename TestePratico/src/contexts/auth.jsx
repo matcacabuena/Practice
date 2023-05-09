@@ -10,7 +10,6 @@ export const AuthProvider = ({ children }) => {
   const [sellers, setSellers] = useState([])
 
   const login = async (email, password) => {
-
       const rs = await fetch("https://m2devadmin.softkuka.com.br/api/Login", {
         method: "POST",
         body: JSON.stringify({
@@ -55,29 +54,32 @@ export const AuthProvider = ({ children }) => {
       return rs;
   }
 
-  const createSeller = async ({name, cnpj, bussinessId, createdAt, updatedAt}) => {
+  const addSeller = async (name, cnpj, businessId, createdAt, updatedAt) => {
     const token = localStorage.getItem("token")
-
-    const createdSeller = await fetch(`https://m2devadmin.softkuka.com.br/api/Vendedor`, {
+    console.log(name)
+    const rs = await fetch(`https://m2devadmin.softkuka.com.br/api/Vendedor`, {
       method: "POST",
-      headers: { Authorization: `Bearer ${token}` },
-      body: {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
         nome:name,
         cnpj,
-        idEmpresa: bussinessId,
+        idEmpresa: businessId,
         criadoEm: createdAt,
         atualizadoEm: updatedAt
-      }
+      }),
     })
-    .then(response => "vendedor criado com sucesso")
+    .then(response => console.log(response))
     .catch(mistake => console.log('Error: ', mistake))
 
-    return createdSeller
+    return rs
   }
 
   return (
     <AuthContext.Provider
-    value={{ user, signed, login, sellerList, searchSeller, createSeller}}
+    value={{ user, signed, login, sellerList, searchSeller, addSeller}}
     >
       {children}
     </AuthContext.Provider>
