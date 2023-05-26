@@ -97,7 +97,7 @@ const Login = () => {
             </Box>
 
             <Box className="inputContainer">
-              <FormLabel htmlFor="password">Password</FormLabel>
+              <FormLabel htmlFor="password">Senha</FormLabel>
               <InputGroup>
                 <InputLeftElement
                   pointerEvents="none"
@@ -115,8 +115,7 @@ const Login = () => {
               colorScheme="teal"
               width="full" >Login</Button>
 
-            {(error) && <Text textAlign="center" color='red'>Invalid e-mail or password</Text>
-            }
+            {(error) && <Text textAlign="center" color='red'>Invalid e-mail or password</Text>}
           </Stack>
         </FormControl>
       </Stack>

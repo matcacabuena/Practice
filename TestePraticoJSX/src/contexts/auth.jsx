@@ -77,9 +77,11 @@ export const AuthProvider = ({ children }) => {
     return rs
   }
 
+  const tokenContext = localStorage.getItem("token")
+
   return (
     <AuthContext.Provider
-    value={{ user, signed, login, sellerList, searchSeller, addSeller}}
+    value={{ user, signed, login, sellerList, searchSeller, addSeller, tokenContext}}
     >
       {children}
     </AuthContext.Provider>

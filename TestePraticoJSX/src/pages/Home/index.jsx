@@ -64,7 +64,7 @@ const List = () => {
       <Box>
       <Stack spacing={6}>
         <Heading as="h1" color="teal" textAlign="center" marginTop='6' >
-          Sellers List
+          Lista de Vendedores
         </Heading>
         <Heading>
           <FormLabel p="5">
@@ -100,7 +100,7 @@ const List = () => {
               >+</Button>
               </Link>
           </FormLabel>
-          <Link href="/home" fontSize='17' color='teal' >Logout</Link>
+          <Link href="/login" fontSize='17' color='teal' >Sair</Link>
         </Heading>
       </Stack>
       </Box>
@@ -135,7 +135,7 @@ const List = () => {
           )
         ) : (
           <Heading as="h2" color="teal" textAlign="center">
-            No sellers found :('
+            Nenhnum vendedor encontrado :(
           </Heading>
         )}
  

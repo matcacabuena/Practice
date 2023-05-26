@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import cnpjMask from "./cnpjMask"
 import {
+  Text,
+  Link,
   Flex,
   Box,
   Center,
@@ -51,9 +53,8 @@ const AddSeller = () => {
       return;
     }
 
-    if (businessId != 1 || cnpj.length < 14 ) {
+    if (businessId != 1 ) {
       console.log(businessId)
-      console.log(cnpj.length)
       console.log('Input mismatch error')
       return;
     }
@@ -65,7 +66,6 @@ const AddSeller = () => {
       console.log('adicionado com sucesso')
       return;
     }
-
   };
 
   return (
@@ -79,7 +79,7 @@ const AddSeller = () => {
         fontSize="4xl"
         pb="8"
       >
-        Add Seller
+        Adicionar Vendedor
       </Center>
       <Flex
         align="center"
@@ -101,7 +101,7 @@ const AddSeller = () => {
             <HStack spacing="4">
               <Box w="100%">
                 <FormControl isInvalid={isErrorName} >
-                  <FormLabel htmlFor="nome">Full Name</FormLabel>
+                  <FormLabel htmlFor="nome">Nome Completo</FormLabel>
                   <Input placeholder="Mateus Caçabuena" value={name} onChange={(e) => [setName(e.target.value), setError("")]} id="nome" required />
                   {!isErrorName ? (
                     <FormHelperText>
@@ -117,7 +117,7 @@ const AddSeller = () => {
               <Box w="100%">
                 <FormControl isInvalid={isErrorCnpj}>
                   <FormLabel htmlFor="cnpj">CNPJ</FormLabel>
-                  <Input minLength={18} maxLength={18} placeholder="12.345.678/0001-00" value={cnpjMask(cnpj)} onChange={(e) => [setCnpj(e.target.value), setError("")]} id="cnpj" />
+                  <Input minLength={14} maxLength={14} placeholder="12.345.678/0001-00" value={cnpj} onChange={(e) => [setCnpj(e.target.value), setError("")]} id="cnpj" />
                 {!isErrorName ? (
                   <FormHelperText>
                     Enter the cnpj you'd like to add
@@ -131,7 +131,7 @@ const AddSeller = () => {
           <HStack spacing="4">
             <Box w="100%">
               <FormControl isInvalid={isErrorBusinessId}>
-              <FormLabel htmlFor="businessId">Business Id</FormLabel>
+              <FormLabel htmlFor="businessId">ID da Empresa</FormLabel>
               <Input placeholder="1" value={businessId} onChange={(e) => [setBusinessId(e.target.value), setError("")]} id="businessId" type="number" />
               {!isErrorBusinessId ? (
                   <FormHelperText>
@@ -145,12 +145,12 @@ const AddSeller = () => {
           </HStack>
           <HStack spacing="4">
             <Box w="100%">
-              <FormLabel>Gender</FormLabel>
+              <FormLabel>Gênero</FormLabel>
               <RadioGroup defaultValue="Male">
                 <HStack spacing="24px">
-                  <Radio value="Male">Male</Radio>
-                  <Radio value="Female">Female</Radio>
-                  <Radio value="Other">Other</Radio>
+                  <Radio value="Male">Masculino</Radio>
+                  <Radio value="Female">Feminino</Radio>
+                  <Radio value="Other">Outro</Radio>
                 </HStack>
               </RadioGroup>
             </Box>
@@ -170,6 +170,7 @@ const AddSeller = () => {
               Create
             </Button>
           </HStack>
+          <Link color="teal" align='right' href='/home' >Voltar para a lista de vendedores</Link>
         </FormControl>
       </Center>
     </Flex>
