@@ -20,6 +20,7 @@ import {
 import { goToHome } from '../routes/coordinator';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+
 function Calculadora() {
     const [currentNumber, setCurrentNumber] = useState('0');
     const [firstNumber, setFirstNumber] = useState('0');
@@ -63,6 +64,30 @@ function Calculadora() {
 
     }
 
+    const handleDivideNumbers = () => {
+        if (firstNumber === '0') {
+            setFirstNumber(String(currentNumber));
+            setCurrentNumber('0')
+            setOperation('/')
+        } else {
+            const divide = Number(firstNumber) / Number(currentNumber);
+            setCurrentNumber(String(divide))
+            setOperation('')
+        }
+    }
+
+    const handleMultiplyNumbers = () => {
+        if (firstNumber === '0') {
+            setFirstNumber(String(currentNumber));
+            setCurrentNumber('0')
+            setOperation('*')
+        } else {
+            const divide = Number(firstNumber) * Number(currentNumber);
+            setCurrentNumber(String(divide))
+            setOperation('')
+        }
+    }
+
     const handleEquals = () => {
 
         if (firstNumber !== '0' && operation !== '' && currentNumber !== '0') {
@@ -72,6 +97,12 @@ function Calculadora() {
                     break;
                 case '-':
                     handleMinusNumbers();
+                    break;
+                case '/':
+                    handleDivideNumbers();
+                    break;
+                case '*':
+                    handleMultiplyNumbers();
                     break;
                 default:
                     break;
@@ -89,7 +120,7 @@ function Calculadora() {
             flexDirection={"column"}
             justifyContent={"center"}
         >
-            <Heading>Calculadora</Heading>
+            <Heading m={5} color='teal.500' >Calculadora</Heading>
             <Flex direction="column" textAlign="center">
                 
                 <Flex
@@ -119,8 +150,8 @@ function Calculadora() {
                         <Button w={'60px'} h={'48px'} bgColor='white' colorScheme='teal' variant='outline' onClick={handleMinusNumbers}>-</Button>
                     </Stack>
                     <Stack mt={1} spacing={4} direction='row' align='center'>
-                        <Button w={'60px'} h={'48px'} bgColor={'white'} colorScheme='teal' variant='outline'>x</Button>
-                        <Button w={'60px'} h={'48px'} bgColor='white' colorScheme='teal' variant='outline'>/</Button>
+                        <Button w={'60px'} h={'48px'} bgColor={'white'} colorScheme='teal' variant='outline' onClick={handleMultiplyNumbers}>x</Button>
+                        <Button w={'60px'} h={'48px'} bgColor='white' colorScheme='teal' variant='outline' onClick={handleDivideNumbers}>/</Button>
                         <Button w={'60px'} h={'48px'} bgColor='white' colorScheme='teal' variant='outline' onClick={handleEquals}>=</Button>
                         <Button w={'60px'} h={'48px'} bgColor='white' colorScheme='teal' variant='outline'>.</Button>
                     </Stack>
