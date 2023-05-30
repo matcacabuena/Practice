@@ -1,2 +1,2 @@
 # Treinamento
-Repositório para depositar códigos feitos sem nenhum compromisso profissional ou acadêmico.
+Repositório dedicado para expor minhas atividades e estudos realizados com cursos online e eventuais desafios.
