@@ -1,6 +1,6 @@
-import 'package:desafio_2/Adicionar.dart';
-import 'package:desafio_2/Home.dart';
-import 'package:desafio_2/Lista.dart';
+import 'package:desafio_2/adicionar.dart';
+import 'package:desafio_2/home.dart';
+import 'package:desafio_2/lista.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
             },
             children: const [
               HomePage(title: "Desafio 2"),
-              AdicionarPage(title: 'Adicionar Pessoas'),
+              AdicionarPage(title: 'Adicionar Pessoa'),
               ListaPage(title: 'Lista de Pessoas')
             ]),
         bottomNavigationBar: BottomNavigationBar(
