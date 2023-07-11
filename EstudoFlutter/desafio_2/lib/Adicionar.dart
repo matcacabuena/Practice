@@ -1,3 +1,5 @@
+import 'package:desafio_2/model/pessoa.dart';
+import 'package:desafio_2/repositories/pessoa_repository.dart';
 import 'package:desafio_2/service/textLabel.dart';
 import 'package:flutter/material.dart';
 
@@ -28,9 +30,11 @@ class AdicionarPage extends StatefulWidget {
 
 class _AdicionarPageState extends State<AdicionarPage> {
   var nomeController = TextEditingController(text: "");
-  var dataController = TextEditingController(text: "");
+  var dataNacimentoController = TextEditingController(text: "");
+  DateTime? dataNascimento;
+  var pessoaRepository = PessoaRepository();
   double peso = 0;
-  double altura = 0;
+  dynamic altura = 0;
   bool salvo = false;
 
   @override
@@ -49,7 +53,7 @@ class _AdicionarPageState extends State<AdicionarPage> {
                 : ListView(children: [
                     const Icon(Icons.person,
                         size: 100, color: Color.fromARGB(255, 148, 24, 16)),
-                    const TextLabel(texto: "Nome"),
+                    const TextLabel(texto: "Nome Completo"),
                     TextField(controller: nomeController),
                     TextLabel(texto: "Peso: ${peso.toStringAsFixed(2)} kg"),
                     Slider(
@@ -65,7 +69,7 @@ class _AdicionarPageState extends State<AdicionarPage> {
                     Slider(
                         min: 0,
                         max: 250,
-                        value: altura,
+                        value: altura.toDouble(),
                         onChanged: (double value) {
                           setState(() {
                             altura = value;
@@ -73,7 +77,7 @@ class _AdicionarPageState extends State<AdicionarPage> {
                         }),
                     const TextLabel(texto: "Data de Nascimento (Opcional)"),
                     TextField(
-                        controller: dataController,
+                        controller: dataNacimentoController,
                         readOnly: true,
                         onTap: () async {
                           var data = await showDatePicker(
@@ -82,7 +86,8 @@ class _AdicionarPageState extends State<AdicionarPage> {
                               firstDate: DateTime(1923, 1, 1),
                               lastDate: DateTime.now());
                           if (data != null) {
-                            dataController.text = data.toString();
+                            dataNacimentoController.text = data.toString();
+                            dataNascimento = data;
                           }
                         }),
                     TextButton(
@@ -111,7 +116,8 @@ class _AdicionarPageState extends State<AdicionarPage> {
                                       Text("A altura deve ser preenchida")));
                           return;
                         }
-
+                        pessoaRepository.adicionar(Pessoa(nomeController.text, peso, int.parse(altura), dataNascimento.toString()));
+                        //print("Nome: ${nomeController.text} Peso: ${peso} Altura: ${altura} Data: ${dataNascimento}");
                         setState(() {
                           salvo = true;
                         });
@@ -119,11 +125,10 @@ class _AdicionarPageState extends State<AdicionarPage> {
                           ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
                                   content: Text(
-                                      "Indivíduo adicionado com sucesso")));
+                                      "Indivíduo Adicionado com Sucesso!")));
                           setState(() {
                             salvo = false;
                           });
-                          Navigator.pop(context);
                         });
                       },
                       child: const Text("Adicionar"),
