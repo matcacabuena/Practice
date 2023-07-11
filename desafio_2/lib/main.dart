@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.redAccent),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Índice de Massa Corporal'),
+      debugShowCheckedModeBanner: false,
+      home: const MyHomePage(title: 'Índice de Massa Corporal')
     );
   }
 }
