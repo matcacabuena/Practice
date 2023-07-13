@@ -35,6 +35,10 @@ A customizable blog starter using:
 
 ---
 
+PT-BR: Este projeto possui o objetivo de crair um blog e fazê-lo consumir uma api com next.js.
+
+ENG: This project has the objective create a blog and make him consume an api with next.js.
+
 You can get started with this project in two ways: locally or using the [setup wizard](https://nextjs-wizard.netlify.app/).
 
 ### Setting Up Locally

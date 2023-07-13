@@ -1,10 +1,14 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este desafio teve a finalidade de fazer uma tela de login e cadastro similar com a DIO. A fim de treinos no React, foram implementadas algumas telas web para navegação.
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Install all dependencies to make the project ready to perform.
 
 ### `npm start`
 

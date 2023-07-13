@@ -1,10 +1,14 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto possui como objetivo uma tela de login básica.
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Install all dependencies to make the project ready to perform.
 
 ### `npm start`
 

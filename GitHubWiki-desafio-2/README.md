@@ -1,10 +1,13 @@
-# Getting Started with Create React App
+# Implementação de GitFind
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+Neste projeto, foi realizado uma página web em que realiza pesquisas sobre repositórios no github. Basta pesquisar [username]/[userRepositoryName]. 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Install all dependencies to make the project ready to perform.
 
 ### `npm start`
 

@@ -42,6 +42,11 @@ function App() {
   return (
     <Container>
       <img src={gitLogo} width={72} height={72} alt="github logo"/>
+      <div id='description'>
+        <p>Bem-vindo ao sistema de pesquisa de repositório</p>
+        <p>Digite o nome da conta, seguida do nome do repositório que deseja e, caso esteja correto, será retornado o repositório com a opção de entrar nele.</p>
+        <p>Exemplo: matcacabuena/Practice</p>
+      </div>
       <Input value={currentRepo} onChange={(e) => setCurrentRepo(e.target.value)} />
       <Button onClick={handleSearchRepo}/>
       {repos.map(repo => <ItemRepo handleRemoveRepo={handleRemoveRepo} repo={repo}/>)}
