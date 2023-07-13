@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class Pessoa {
   String _nome = '';
   double _peso = 0;
-  int _altura = 0;
+  double _altura = 0;
   String _dataNascimento = '';
 
   Pessoa(this._nome, this._peso, this._altura, this._dataNascimento);
 
   String get nome => _nome;
   double get peso => _peso;
-  int get altura => _altura;
+  double get altura => _altura;
   String get dataNascimento => _dataNascimento;
 
   set nome(String nome) {
@@ -21,7 +21,7 @@ class Pessoa {
     _peso = peso;
   }
 
-  set altura(int altura) {
+  set altura(double altura) {
     _altura = altura;
   }
 

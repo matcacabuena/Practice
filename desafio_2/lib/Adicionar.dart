@@ -116,7 +116,7 @@ class _AdicionarPageState extends State<AdicionarPage> {
                                       Text("A altura deve ser preenchida")));
                           return;
                         }
-                        pessoaRepository.adicionar(Pessoa(nomeController.text, peso, int.parse(altura), dataNascimento.toString()));
+                        pessoaRepository.adicionar(Pessoa(nomeController.text, peso, altura, dataNascimento.toString()));
                         //print("Nome: ${nomeController.text} Peso: ${peso} Altura: ${altura} Data: ${dataNascimento}");
                         setState(() {
                           salvo = true;
@@ -125,7 +125,7 @@ class _AdicionarPageState extends State<AdicionarPage> {
                           ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
                                   content: Text(
-                                      "Indivíduo Adicionado com Sucesso!")));
+                                      "{$nomeController.text}")));
                           setState(() {
                             salvo = false;
                           });
