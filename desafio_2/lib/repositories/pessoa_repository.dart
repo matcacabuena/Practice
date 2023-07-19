@@ -1,20 +1,28 @@
 import 'package:desafio_2/model/pessoa.dart';
 
 class PessoaRepository {
-  final List<Pessoa> _pessoas = [];
+  static final PessoaRepository _instance = PessoaRepository._internal();
+  
+  factory PessoaRepository() {
+    return _instance;
+  }
+  
+  PessoaRepository._internal();
+
+  List<Pessoa> pessoas = [];
 
   Future<void> adicionar(Pessoa pessoa) async {
-    await Future.delayed(const Duration(milliseconds: 100));
-    _pessoas.add(pessoa);
-  }
-
-  Future<void> remove(String nome) async {
-    await Future.delayed(const Duration(milliseconds: 100));
-    _pessoas.remove(_pessoas.where((pessoa) => pessoa.nome == nome).first);
+    // Adicione sua lógica para adicionar uma pessoa
+    pessoas.add(pessoa);
   }
 
   Future<List<Pessoa>> listar() async {
-    await Future.delayed(const Duration(milliseconds: 100));
-    return _pessoas;
+    // Adicione sua lógica para listar pessoas
+    return pessoas;
+  }
+
+  Future<void> remove(String nome) async {
+    // Adicione sua lógica para remover uma pessoa
+    pessoas.removeWhere((pessoa) => pessoa.nome == nome);
   }
 }
