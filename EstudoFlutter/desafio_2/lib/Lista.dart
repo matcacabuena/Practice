@@ -23,24 +23,24 @@ class ListaPage extends StatefulWidget {
 
 class _ListaPageState extends State<ListaPage> {
   List<Pessoa> pessoas = [];
-
-  addPessoa(Pessoa pessoa) {
-    setState(() {
-      pessoas.add(pessoa);
-    });
-  }
+  var pessoaRepository = PessoaRepository();
 
   @override
-  Widget build(BuildContext context) {
-    var pessoaRepository = PessoaRepository();
-    var pessoas = const <Pessoa>[];
+  void initState() {
+    super.initState();
+    obterPessoas();
+  }
 
-    void obterTarefas() async {
+  void obterPessoas() async {
       pessoas = await pessoaRepository.listar();
       setState(() {});
-      print(pessoas);
+      //print(pessoas);
     }
 
+  
+  @override
+  Widget build(BuildContext context) {
+    String n = pessoas.length.toString();
     return Scaffold(
         appBar: AppBar(
           title: Center(
@@ -52,7 +52,7 @@ class _ListaPageState extends State<ListaPage> {
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Column(
             children: [
-              pessoas.isEmpty ? const TextLabel(texto: "Sem pessoas") : Expanded(
+              pessoas.isEmpty ? TextLabel(texto: "$n pessoas") : Expanded(
                 child: ListView.builder(
                     itemCount: pessoas.length,
                     itemBuilder: (BuildContext bc, int index) {
@@ -60,14 +60,14 @@ class _ListaPageState extends State<ListaPage> {
                       return Dismissible(
                         onDismissed: (DismissDirection dismissDirection) async {
                           await pessoaRepository.remove(pessoa.nome);
-                          obterTarefas();
+                          obterPessoas();
                         },
                         key: Key(pessoa.nome),
                         child: ListTile(
                           title: Text(pessoa.altura.toString() + " cm"),
                           trailing: Switch(
                             onChanged: (bool value) {
-                              obterTarefas();
+                              obterPessoas();
                             },
                             value: pessoas.isNotEmpty
                           ),

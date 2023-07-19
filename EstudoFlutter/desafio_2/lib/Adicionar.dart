@@ -91,7 +91,7 @@ class _AdicionarPageState extends State<AdicionarPage> {
                           }
                         }),
                     TextButton(
-                      onPressed: () {
+                      onPressed: () async {
                         setState(() {
                           salvo = false;
                         });
@@ -116,16 +116,17 @@ class _AdicionarPageState extends State<AdicionarPage> {
                                       Text("A altura deve ser preenchida")));
                           return;
                         }
-                        pessoaRepository.adicionar(Pessoa(nomeController.text, peso, altura, dataNascimento.toString()));
-                        //print("Nome: ${nomeController.text} Peso: ${peso} Altura: ${altura} Data: ${dataNascimento}");
+                        await pessoaRepository.adicionar(Pessoa(nomeController.text, peso, altura, dataNascimento.toString()));
+                        List<Pessoa> pessoas = await pessoaRepository.listar();
+                        int p = pessoas.length;
                         setState(() {
                           salvo = true;
                         });
                         Future.delayed(const Duration(seconds: 3), () {
                           ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
+                              SnackBar(
                                   content: Text(
-                                      "{$nomeController.text}")));
+                                      "$p pessoas foram adicionadas")));
                           setState(() {
                             salvo = false;
                           });
