@@ -22,7 +22,7 @@ class ListaPage extends StatefulWidget {
 }
 
 class _ListaPageState extends State<ListaPage> {
-  List<Pessoa> pessoas = [];
+  var _pessoas = const <Pessoa>[];
   var pessoaRepository = PessoaRepository();
 
   @override
@@ -32,7 +32,7 @@ class _ListaPageState extends State<ListaPage> {
   }
 
   void obterPessoas() async {
-      pessoas = await pessoaRepository.listar();
+      _pessoas = await pessoaRepository.listar();
       setState(() {});
       //print(pessoas);
     }
@@ -40,7 +40,7 @@ class _ListaPageState extends State<ListaPage> {
   
   @override
   Widget build(BuildContext context) {
-    String n = pessoas.length.toString();
+    String n = _pessoas.length.toString();
     return Scaffold(
         appBar: AppBar(
           title: Center(
@@ -52,11 +52,11 @@ class _ListaPageState extends State<ListaPage> {
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Column(
             children: [
-              pessoas.isEmpty ? TextLabel(texto: "$n pessoas") : Expanded(
+              _pessoas.isEmpty ? TextLabel(texto: "$n _pessoas") : Expanded(
                 child: ListView.builder(
-                    itemCount: pessoas.length,
+                    itemCount: _pessoas.length,
                     itemBuilder: (BuildContext bc, int index) {
-                      var pessoa = pessoas[index];
+                      var pessoa = _pessoas[index];
                       return Dismissible(
                         onDismissed: (DismissDirection dismissDirection) async {
                           await pessoaRepository.remove(pessoa.nome);
@@ -64,13 +64,10 @@ class _ListaPageState extends State<ListaPage> {
                         },
                         key: Key(pessoa.nome),
                         child: ListTile(
-                          title: Text(pessoa.altura.toString() + " cm"),
-                          trailing: Switch(
-                            onChanged: (bool value) {
-                              obterPessoas();
-                            },
-                            value: pessoas.isNotEmpty
-                          ),
+                          leading: Image.asset('lib/assets/user.png'),
+                          title: Text(pessoa.nome),
+                          subtitle: const Text("Índice Massa Corporal: "),
+                          trailing: Text(pessoa.peso.toStringAsFixed(2)),
                         ),
                       );
                     }),
