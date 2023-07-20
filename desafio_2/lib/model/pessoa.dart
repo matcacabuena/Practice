@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class Pessoa {
   String _nome = '';
   double _peso = 0;
@@ -29,8 +27,24 @@ class Pessoa {
     _dataNascimento = dataNascimento;
   }
 
-  // @override
-  // String toString() {
-  //   return 'Pessoa{_nome: $_nome, _peso: $_peso, _altura: $_altura, _dataNascimento: $_dataNascimento}';
-  // }
+  double calculaImc() {
+    double alturaMetros = _altura / 100; // Converter altura de cm para metros
+    return _peso / (alturaMetros * alturaMetros);
+  }
+
+  String classificacaoImc() {
+    if (calculaImc() < 18.5) {
+      return 'Baixo Peso';
+    }
+    if (calculaImc() >= 18.5 && calculaImc() < 24.99) {
+      return 'Normal';
+    }
+    if (calculaImc() >= 25 && calculaImc() <= 29.99) {
+      return 'Sobrepeso';
+    }
+    if (calculaImc() > 30) {
+      return 'Obesidade';
+    }
+    return 'Não computado';
+  }
 }
