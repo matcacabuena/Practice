@@ -40,7 +40,6 @@ class _ListaPageState extends State<ListaPage> {
   
   @override
   Widget build(BuildContext context) {
-    String n = _pessoas.length.toString();
     return Scaffold(
         appBar: AppBar(
           title: Center(
@@ -52,11 +51,12 @@ class _ListaPageState extends State<ListaPage> {
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Column(
             children: [
-              _pessoas.isEmpty ? TextLabel(texto: "$n _pessoas") : Expanded(
+              _pessoas.isEmpty ? const TextLabel(texto: "Nenhuma pessoa cadastrada.") : Expanded(
                 child: ListView.builder(
                     itemCount: _pessoas.length,
                     itemBuilder: (BuildContext bc, int index) {
                       var pessoa = _pessoas[index];
+                      String imc = pessoa.calculaImc().toStringAsFixed(2);
                       return Dismissible(
                         onDismissed: (DismissDirection dismissDirection) async {
                           await pessoaRepository.remove(pessoa.nome);
@@ -66,8 +66,8 @@ class _ListaPageState extends State<ListaPage> {
                         child: ListTile(
                           leading: Image.asset('lib/assets/user.png'),
                           title: Text(pessoa.nome),
-                          subtitle: const Text("Índice Massa Corporal: "),
-                          trailing: Text(pessoa.peso.toStringAsFixed(2)),
+                          subtitle: Text("Índice Massa Corporal: $imc"),
+                          trailing: Text(pessoa.classificacaoImc()),
                         ),
                       );
                     }),

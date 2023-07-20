@@ -65,29 +65,22 @@ class _HomePageState extends State<HomePage> {
               margin: const EdgeInsets.only(top: 8, bottom: 16),
               child: Image.asset('lib/assets/github.png')
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.red,
-                borderRadius: BorderRadius.circular(
-                    10), // Ajuste o valor conforme necessário
-              ), // Defina a cor de fundo desejada
-              child: InkWell(
-                onTap: () {
-                  // Código para abrir o link quando o botão for clicado
-                  _launchURL('www.github.com');
-                },
-                child: const SizedBox(
-                  width: 150, // Ajuste o tamanho conforme necessário
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Acessar',
-                        style: TextStyle(fontSize: 14, color: Colors.white),
-                      ),
-                      Icon(Icons.ads_click_rounded, color: Colors.white),
-                    ],
-                  ),
+            InkWell(
+              onTap: () {
+                // Código para abrir o link quando o botão for clicado
+                _launchURL('www.github.com');
+              },
+              child: const SizedBox(
+                width: 150, // Ajuste o tamanho conforme necessário
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Acessar',
+                      style: TextStyle(fontSize: 14, color: Colors.red),
+                    ),
+                    Icon(Icons.ads_click_rounded, color: Colors.red),
+                  ],
                 ),
               ),
             ),

@@ -30,7 +30,7 @@ class AdicionarPage extends StatefulWidget {
 
 class _AdicionarPageState extends State<AdicionarPage> {
   var nomeController = TextEditingController(text: "");
-  var dataNacimentoController = TextEditingController(text: "");
+  var dataNascimentoController = TextEditingController(text: "");
   DateTime? dataNascimento;
   var pessoaRepository = PessoaRepository();
   double peso = 0;
@@ -77,7 +77,7 @@ class _AdicionarPageState extends State<AdicionarPage> {
                         }),
                     const TextLabel(texto: "Data de Nascimento (Opcional)"),
                     TextField(
-                        controller: dataNacimentoController,
+                        controller: dataNascimentoController,
                         readOnly: true,
                         onTap: () async {
                           var data = await showDatePicker(
@@ -86,7 +86,7 @@ class _AdicionarPageState extends State<AdicionarPage> {
                               firstDate: DateTime(1923, 1, 1),
                               lastDate: DateTime.now());
                           if (data != null) {
-                            dataNacimentoController.text = data.toString();
+                            dataNascimentoController.text = data.toString();
                             dataNascimento = data;
                           }
                         }),
@@ -116,17 +116,24 @@ class _AdicionarPageState extends State<AdicionarPage> {
                                       Text("A altura deve ser preenchida")));
                           return;
                         }
-                        await pessoaRepository.adicionar(Pessoa(nomeController.text, peso, altura, dataNascimento.toString()));
-                        List<Pessoa> pessoas = await pessoaRepository.listar();
-                        int p = pessoas.length;
+                        await pessoaRepository.adicionar(Pessoa(
+                            nomeController.text,
+                            peso,
+                            altura,
+                            dataNascimento.toString()));
                         setState(() {
+                          nomeController.clear();
+                          dataNascimentoController.clear();
+                          dataNascimento = null;
+                          peso = 0;
+                          altura = 0;
                           salvo = true;
                         });
                         Future.delayed(const Duration(seconds: 3), () {
                           ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
+                              const SnackBar(
                                   content: Text(
-                                      "$p pessoas foram adicionadas")));
+                                      "Indivíduo adicionado com sucesso!")));
                           setState(() {
                             salvo = false;
                           });
