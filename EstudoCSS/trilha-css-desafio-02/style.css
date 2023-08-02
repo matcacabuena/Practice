@@ -1,0 +1,44 @@
+* {
+    color: black;
+    background-color: rgba(128, 128, 128, 0.086);
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    display: flex;
+}
+
+/* HEADER */
+
+header {
+    display: flex;
+    background-color: white;
+    height: 56px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
+
+.ytbMenu {
+    width: 146px;
+    height: 24px;
+    background-color: transparent;
+}
+
+.search {
+    width: 404px;
+    height: 40px;
+    border: 1px;
+}
+
+.icons {
+    width: 130px;
+    height: 34px;
+    gap: 24px;
+    background-color: transparent;
+}
+
+/* HEADER */
