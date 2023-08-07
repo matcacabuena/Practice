@@ -1,7 +1,7 @@
 * {
     color: black;
-    background-color: rgba(128, 128, 128, 0.086);
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -9,6 +9,7 @@ body {
     width: 100vw;
     flex-direction: column;
     display: flex;
+    background-color: rgba(128, 128, 128, 0.086);
 }
 
 /* HEADER */
@@ -20,6 +21,11 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 24px;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
 }
 
 .ytbMenu {
@@ -42,3 +48,62 @@ header {
 }
 
 /* HEADER */
+/* VIDEO */
+ .video {
+    width: 100%;
+    height: 100%;
+    top: 84px;
+    left: 75px;
+    gap: 16px;   
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin-left: 3rem;
+ }
+
+ .videoAction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+
+ .channelInfos {
+    width: 160px;
+    height: 40px;
+ }
+
+ .subscribe {
+    width: 160px;
+    height: 40px;
+ }
+
+ .like {
+    width: 60px;
+    height: 25px;
+ }
+
+ .deslike {
+    width: 100px;
+    height: 25px;
+ }
+
+ .share {
+    width: 120px;
+    height: 25px;
+ }
+
+ .download {
+    width: 100px;
+    height: 25px;
+ }
+
+ .description {
+    color: #515151;
+ }
+/* VIDEO */
+
+.sidebar {
+    padding: 1rem;
+    width: 45%;
+    height: 100%;
+}
