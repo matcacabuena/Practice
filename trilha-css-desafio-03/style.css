@@ -1,0 +1,47 @@
+* {
+   color: black;
+   margin: 0;
+   font-family: 'Roboto', sans-serif;
+}
+
+body {
+   height: 100%;
+   width: 100%;
+   flex-direction: column;
+   display: flex;
+   background-color: rgba(128, 128, 128, 0.086);
+}
+
+/* HEADER */
+
+header {
+   display: flex;
+   background-color: white;
+   justify-content: space-between;
+   align-items: center;
+   padding: 12px 24px;
+}
+
+section {
+   display: flex;
+   flex-direction: row;
+}
+
+aside {
+   display: flex;
+   flex-direction: column;
+   background-color: white;
+   gap: 24px;
+   padding: 24px;
+   height: 88vh;
+}
+
+article {
+   display: grid;
+   grid: repeat(3, auto) / repeat(6, auto);
+   padding: 15px;
+}
+
+.video {
+   width: 100%;
+}
