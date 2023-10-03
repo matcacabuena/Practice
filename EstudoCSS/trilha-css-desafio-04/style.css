@@ -96,24 +96,36 @@ p {
     padding-inline: 24px;
     justify-content: center;
     align-items: center;
+}
+
+.last-grid-item {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 24px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.last-grid-item h1 {
+    text-align: center;
+}
+
+.white-bg {
+    background-color: white;
     @media screen and (min-width: 1024px) { /* !tablet */
         flex-direction: row;
     }
 }
 
-.last-grid-item {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-}
-
-.white-bg {
-    background-color: white;
-}
-
 .gray-bg {
+    background-color: rgba(128, 128, 128, 0.086);
+    @media screen and (min-width: 1024px) { /* !tablet */
+        flex-direction: row-reverse;
+    }
+}
+
+.last-gray-bg {
     background-color: rgba(128, 128, 128, 0.086);
 }
 
