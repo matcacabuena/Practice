@@ -31,8 +31,92 @@
     scroll-behavior: smooth;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+/* menu */
 .menu {
     width: 100%;
     padding: 12px 16px;
     background-color: var(--nav-bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 0.75rem;
 }
+
+.menu-logo {
+    max-width: 160px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.entrar {
+    margin-right: 24px;
+}
+
+.assine-agora {
+    background-color: var(--tertiary-color);
+    padding: 8px 26px;
+    border-radius: 500px;
+    transition: background 1s, color 1s;
+}
+
+.assine-agora:hover {
+    background-color: var(--btn-link-bg-color);
+    color: var(--btn-link-color);
+}
+
+/* isMobile */
+@media screen and (max-width: 728px) { 
+    .menu {
+        padding: 32px 24px;
+        flex-direction: column;
+        gap: 24px;
+    }
+    .entrar {
+        margin-right: 12px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Custom Scroll */
+
+::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--tertiary-color);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+  }
