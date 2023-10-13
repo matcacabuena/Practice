@@ -1,1 +1,168 @@
 @import url("./global.css");
+
+:root {
+    --primary-color: #020228;
+    --secondary-color: #ff00e5;
+    --tertiary-color: #b535f6;
+    --btn-bg-color-gradient: linear-gradient(
+      45deg,
+      #9b34ef 0%,
+      #490cb0 20%,
+      transparent 50%
+    );
+    --btn-link-bg-color: #fff;
+    --btn-link-color: #000;
+    --card-bg-color: linear-gradient(0deg, transparent, #3b1e63);
+    --divider-bg-color: linear-gradient(
+      90deg,
+      #5516ba,
+      rgba(255, 0, 229, 0.5) 80%
+    );
+    --nav-bg-color: rgba(0, 0, 0, 0.3);
+    --text-color: #fff;
+    --link-color: #9e86ff;
+    --form-bg-color: rgba(211, 211, 211, 0.06);
+    --form-field-bg-color: rgba(0, 0, 0, 0.2);
+    --form-field-border: 1px solid rgba(255, 255, 255, 0.7);
+    --form-field-placeholder: rgba(255, 255, 255, 0.7);
+    --form-field-error: rgb(255, 76, 76);
+
+    scroll-behavior: smooth;
+}
+
+.header { 
+    position: relative;
+    margin: auto;
+    padding: 100px 0 300px;
+    background: linear-gradient(-45deg, #56125b, #0f0f10, #271e6e);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite alternate;
+  }
+  
+  .header::after {
+    content: "";
+    width: 100%;
+    height: 250px;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(0deg, var(--primary-color), transparent);
+  }
+
+.header-content {
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    padding: 0 40px;
+    align-items: center;
+}
+
+.header-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
+
+.empresa-logo {
+    object-fit: contain;
+}
+
+.header-title {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.header-title-light {
+    display: block;
+    font-weight: lighter;
+    font-size: 2rem;
+}
+
+.divider {
+    width: 70%;
+    background: var(--divider-bg-color);
+    height: 5px;
+    max-width: 700px;
+}
+
+.header-text {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+p {
+    font-family: "Quicksand", sans-serif;
+}
+
+.oferta {
+    font-size: 1.25rem;
+}
+
+.oferta-preco {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: "Raleway", sans-serif;
+}
+
+.oferta-preco-pequeno {
+    font-size: 1rem;
+    font-weight: lighter;
+}
+
+.header-button {
+    animation: wiggle 2.2s linear infinite;
+}
+
+.header .text-small {
+    max-width: 300px
+}
+
+/* main */
+.main {
+    text-align: center;
+    padding: 24px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes wiggle {
+    0% {
+        transform: rotate(0);
+    }
+    15% {
+        transform: rotate(-10deg);
+    }
+    20% {
+        transform: rotate(5deg);
+    }
+    25% {
+        transform: rotate(-5deg);
+    }
+    30% {
+        transform: rotate(5deg);
+    }
+    35% {
+        transform: rotate(-5deg);
+    }
+    40%, 100% {
+        transform: rotate(0deg);
+    }
+}

@@ -72,16 +72,49 @@ body {
     margin-right: 24px;
 }
 
-.assine-agora {
-    background-color: var(--tertiary-color);
+.button {
     padding: 8px 26px;
     border-radius: 500px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.gradient-button {
+    background: linear-gradient(
+        45deg,
+        #9b34ef 0%,
+        #490cb0 20%,
+        transparent 50%
+    );
+    background-size: 250%;
+    letter-spacing: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 16px 40px;
+    outline: 2px solid transparent;
+}
+
+.gradient-button:hover {
+    background-color: transparent;
+    background-position: 100%;
+    outline: 2px solid var(--secondary-color);
+    transition: background 1s, outline 1s, transform 1s;
+}
+
+.nav-button {
+    background-color: var(--tertiary-color);
     transition: background 1s, color 1s;
 }
 
-.assine-agora:hover {
+.nav-button:hover {
     background-color: var(--btn-link-bg-color);
     color: var(--btn-link-color);
+}
+
+.text-small {
+    font-size: 1rem;
+    font-weight: 300;
 }
 
 /* isMobile */
@@ -96,18 +129,7 @@ body {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
 /* Custom Scroll */
-
 ::-webkit-scrollbar {
     width: 8px;
   }
