@@ -142,7 +142,16 @@ p {
     flex-direction: column;
 }
 
+.cards {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
 .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background: var(--card-bg-color);
     max-width: 600px;
     padding: 40px 60px;
@@ -156,14 +165,48 @@ p {
     justify-content: space-between;
 }
 
+.card-title h3 {
+    font-size: 1.5rem;
+}
+
+.card-title p {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-family: "Raleway", sans-serif;
+}
+
+.card-title span {
+    font-size: 1rem;
+    font-weight: 300;
+    color: white;
+    font-family: "Raleway", sans-serif;
+}
+
 .card-list ul {
     list-style: "+";
     text-align: left;
     margin-top: 24px;
+    font-size: 2rem;
 }
 
 .card-list ul li {
-    margin-top: 16px;
+    margin-top: 14px;
+    font-size: 1.25rem;
+    margin-bottom: 28px;
+    padding-left: 14px;
+}
+
+@media screen and (max-width: 768px) { 
+    .header {
+        padding: 150px 0 300px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .cards {
+        flex-direction: column;
+    }
 }
 
 @keyframes gradient {
